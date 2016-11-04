@@ -20,14 +20,19 @@ public:
 protected:
     cocos2d::DrawNode* drawNode;
     cocos2d::LayerColor* background;
+    cocos2d::Sprite* selected;
+    cocos2d::Color4F selectedColor;
     
     bool init() override;
     void onEnter() override;
     void setupTouchHandling();
     void drawingMenu();
+    
     void clrPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void bckPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void bulbPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
+    void colorChangePressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 
 };
 

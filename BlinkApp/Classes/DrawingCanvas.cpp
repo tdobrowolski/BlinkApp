@@ -7,6 +7,7 @@
 //
 
 #include "DrawingCanvas.hpp"
+#include "Constants.h"
 
 using namespace cocos2d;
 
@@ -18,11 +19,13 @@ bool DrawingCanvas::init()
     }
     
     drawNode = DrawNode::create();
-    background = LayerColor::create(Color4B(255, 255, 255, 255));
+    background = LayerColor::create(Color4B(COLOR_WHITE));
     
-    this->addChild(background);
+    this -> addChild(background);
     
-    this->addChild(drawNode);
+    this -> addChild(drawNode);
+    
+    selectedColor = COLOR_RED;
     
     return true;
 }
@@ -33,10 +36,10 @@ void DrawingCanvas::onEnter()
     
     Size visibleSize = Director::getInstance() -> getVisibleSize();
     
-    this->setContentSize(visibleSize);
-    drawNode->setContentSize(visibleSize);
+    this -> setContentSize(visibleSize);
+    drawNode -> setContentSize(visibleSize);
     
-    this->setupTouchHandling();
+    this -> setupTouchHandling();
     
     drawingMenu();
 }
@@ -49,21 +52,21 @@ void DrawingCanvas::setupTouchHandling()
     
     touchListener->onTouchBegan = [&](Touch* touch, Event* event)
     {
-        lastTouchPos = drawNode->convertTouchToNodeSpace(touch);
+        lastTouchPos = drawNode -> convertTouchToNodeSpace(touch);
         
         return true;
     };
     
     touchListener->onTouchMoved = [&](Touch* touch, Event* event)
     {
-        Vec2 touchPos = drawNode->convertTouchToNodeSpace(touch);
+        Vec2 touchPos = drawNode -> convertTouchToNodeSpace(touch);
         
-        drawNode->drawSegment(lastTouchPos, touchPos, 4.0f, Color4F(0.0f, 0.0f, 0.0f, 1.0f));
+        drawNode -> drawSegment(lastTouchPos, touchPos, INITIAL_RADIUS, selectedColor);
         
         lastTouchPos = touchPos;
     };
     
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+    this -> getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
 
 void DrawingCanvas::drawingMenu()
@@ -90,7 +93,60 @@ void DrawingCanvas::drawingMenu()
     bulbButton -> loadTextures("bulbButton.png", "bulbButtonPressed.png");
     bulbButton -> addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::bulbPressed, this)); //dodaje metode powiazana z nacisnieciem przycisku
     this -> addChild(bulbButton); //dodaje przycisk zmiany tła do sceny
+    
+    selected = Sprite::create("colorRectanglePicked.png");
+    selected -> setAnchorPoint(Vec2(0, 0));
+    selected -> setNormalizedPosition(Vec2(0, 0));
+    selected -> setColor(Color3B(COLOR_RED));
 
+    Node* colorButtonLayout = Node::create();
+    colorButtonLayout -> setContentSize(Size(visibleSize.width, visibleSize.height * 0.11f));
+    colorButtonLayout -> setAnchorPoint(Vec2(0, 0));
+    colorButtonLayout -> setPosition(Vec2(120, 0));
+    this -> addChild(colorButtonLayout);
+    
+    for (int i = 1; i <= 6; ++i) //petla dodajaca przyciski i ustawiajaca ich dane
+    {
+        ui::Button* colorButton = ui::Button::create();
+        colorButton -> setAnchorPoint(Vec2(0.0, 0.0));
+        colorButton -> setPosition(Vec2(visibleSize.width * i * (1.0f/6.0f), 0.0f));
+        colorButton -> loadTextures("colorRectangle.png", "colorRectanglePicked.png");
+        colorButton -> addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this)); //dodaje metode powiazana z wybraniem koloru
+        colorButton -> setScale(1.03);
+        
+        Color4F rectangleColor;
+        
+        switch(i)
+        {
+            case 1:
+                rectangleColor = COLOR_RED;
+                break;
+            case 2:
+                rectangleColor = COLOR_ORANGE;
+                break;
+            case 3:
+                rectangleColor = COLOR_YELLOW;
+                break;
+            case 4:
+                rectangleColor = COLOR_BLUE;
+                break;
+            case 5:
+                rectangleColor = COLOR_GREEN;
+                break;
+            case 6:
+                rectangleColor = COLOR_PURPLE;
+                break;
+        }
+        
+        if (rectangleColor == COLOR_RED)
+        {
+            colorButton -> addChild(this -> selected);
+        }
+        
+        colorButton -> setColor(Color3B(rectangleColor));
+        colorButtonLayout -> addChild(colorButton);        
+        
+    }
     
 }
 
@@ -114,6 +170,47 @@ void DrawingCanvas::bulbPressed(Ref *pSender, ui::Widget::TouchEventType eEventT
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
-       
+        if (isWhite == true)
+            {
+                this -> removeChild(background);
+        
+                background = LayerColor::create(Color4B(COLOR_GREY));
+        
+                this -> addChild(background);
+        
+                this -> reorderChild(background, -1);
+                
+                isWhite = false;
+                
+            } else {
+                
+                this -> removeChild(background);
+        
+                background = LayerColor::create(Color4B(COLOR_WHITE));
+        
+                this -> addChild(background);
+        
+                this -> reorderChild(background, -1);
+                
+                isWhite = true;
+            }
+    }
+}
+
+void DrawingCanvas::colorChangePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
+{
+    if (eEventType == ui::Widget::TouchEventType::ENDED)
+    {
+        ui::Button* pressedButton = static_cast<ui::Button*>(pSender);
+        Color3B pickedColor = pressedButton -> getColor();
+        selectedColor = Color4F(pickedColor);
+        
+        selected -> setColor(Color3B(pickedColor));
+        
+        selected -> retain();
+        selected -> removeFromParent();
+        pressedButton -> addChild(selected);
+        selected -> release();
+        
     }
 }

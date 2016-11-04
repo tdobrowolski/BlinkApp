@@ -8,6 +8,7 @@
 
 #include "Lobby.hpp"
 #include "DrawingCanvas.hpp"
+#include "Constants.h"
 
 using namespace cocos2d;
 
@@ -18,7 +19,7 @@ bool Lobby::init()
         return false;
     }
     
-    LayerColor* background = LayerColor::create(Color4B(255, 255, 255, 255)); //tworze tlo dla Lobby
+    LayerColor* background = LayerColor::create(Color4B(COLOR_WHITE)); //tworze tlo dla Lobby
     this -> addChild(background); //dodaje tlo do sceny
     
     return true;
@@ -42,7 +43,6 @@ void Lobby::setupUI()
     this -> addChild(logo); //dodaje logo do sceny
     
     
-    
     Sprite* background = Sprite::create("background.png");
     background -> setAnchorPoint(Vec2(0, 0));
     
@@ -51,8 +51,6 @@ void Lobby::setupUI()
     background -> setPosition(Vec2(150, 0));
     
     this -> addChild(background); //dodaje logo do sceny
-    
-    
     
     
     ui::Button* oneButton = ui::Button::create();
@@ -68,8 +66,6 @@ void Lobby::setupUI()
     twoButton -> loadTextures("twoButton.png", "twoButton.png");
     twoButton -> addTouchEventListener(CC_CALLBACK_2(Lobby::twoPressed, this)); //dodaje metode powiazana z nacisnieciem przycisku
     this -> addChild(twoButton); //dodaje przycisk 2 do sceny
-    
-    
 }
 
 void Lobby::onePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
