@@ -68,6 +68,11 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		E1021B251DE0D3BE0096C3C8 /* NetworkingWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1021B201DE0D3BE0096C3C8 /* NetworkingWrapper.mm */; };
+		E1021B261DE0D3BE0096C3C8 /* NetworkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1021B241DE0D3BE0096C3C8 /* NetworkManager.mm */; };
+		E1021B2A1DE0D4AF0096C3C8 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1021B291DE0D4AF0096C3C8 /* MultipeerConnectivity.framework */; };
+		E1021B2D1DE0D72D0096C3C8 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1021B2B1DE0D72D0096C3C8 /* SceneManager.cpp */; };
+		E1021B2E1DE0D72D0096C3C8 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1021B2B1DE0D72D0096C3C8 /* SceneManager.cpp */; };
 		E1497DF61DC6211D00E28357 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1497DF41DC6211D00E28357 /* Lobby.cpp */; };
 		E1497DF71DC6211D00E28357 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1497DF41DC6211D00E28357 /* Lobby.cpp */; };
 		E151317C1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */; };
@@ -174,6 +179,14 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		E1021B201DE0D3BE0096C3C8 /* NetworkingWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkingWrapper.mm; sourceTree = "<group>"; };
+		E1021B211DE0D3BE0096C3C8 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		E1021B221DE0D3BE0096C3C8 /* NetworkingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingWrapper.h; sourceTree = "<group>"; };
+		E1021B231DE0D3BE0096C3C8 /* NetworkManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManagerDelegate.h; sourceTree = "<group>"; };
+		E1021B241DE0D3BE0096C3C8 /* NetworkManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkManager.mm; sourceTree = "<group>"; };
+		E1021B291DE0D4AF0096C3C8 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		E1021B2B1DE0D72D0096C3C8 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		E1021B2C1DE0D72D0096C3C8 /* SceneManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneManager.hpp; sourceTree = "<group>"; };
 		E1497DF41DC6211D00E28357 /* Lobby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lobby.cpp; sourceTree = "<group>"; };
 		E1497DF51DC6211D00E28357 /* Lobby.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Lobby.hpp; sourceTree = "<group>"; };
 		E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawingCanvas.cpp; sourceTree = "<group>"; };
@@ -188,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1021B2A1DE0D4AF0096C3C8 /* MultipeerConnectivity.framework in Frameworks */,
 				294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
@@ -278,6 +292,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1021B291DE0D4AF0096C3C8 /* MultipeerConnectivity.framework */,
 				294D0D631D0D56D500F7F5D4 /* CoreText.framework */,
 				ED545A7D1B68A1FA00C3958E /* libiconv.dylib */,
 				ED545A7B1B68A1F400C3958E /* libiconv.dylib */,
@@ -318,6 +333,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E1021B281DE0D3D30096C3C8 /* Sieć */,
 				E1497DF51DC6211D00E28357 /* Lobby.hpp */,
 				E1497DF41DC6211D00E28357 /* Lobby.cpp */,
 				E15F81C71DCBCE6200246E26 /* Constants.h */,
@@ -378,6 +394,20 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		E1021B281DE0D3D30096C3C8 /* Sieć */ = {
+			isa = PBXGroup;
+			children = (
+				E1021B201DE0D3BE0096C3C8 /* NetworkingWrapper.mm */,
+				E1021B221DE0D3BE0096C3C8 /* NetworkingWrapper.h */,
+				E1021B2B1DE0D72D0096C3C8 /* SceneManager.cpp */,
+				E1021B2C1DE0D72D0096C3C8 /* SceneManager.hpp */,
+				E1021B211DE0D3BE0096C3C8 /* NetworkManager.h */,
+				E1021B231DE0D3BE0096C3C8 /* NetworkManagerDelegate.h */,
+				E1021B241DE0D3BE0096C3C8 /* NetworkManager.mm */,
+			);
+			name = "Sieć";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -533,10 +563,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				E1021B261DE0D3BE0096C3C8 /* NetworkManager.mm in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				E151317C1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */,
+				E1021B2D1DE0D72D0096C3C8 /* SceneManager.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				E1497DF61DC6211D00E28357 /* Lobby.cpp in Sources */,
+				E1021B251DE0D3BE0096C3C8 /* NetworkingWrapper.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
@@ -548,6 +581,7 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				E1021B2E1DE0D72D0096C3C8 /* SceneManager.cpp in Sources */,
 				E151317D1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				E1497DF71DC6211D00E28357 /* Lobby.cpp in Sources */,

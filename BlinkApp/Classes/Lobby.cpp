@@ -9,6 +9,7 @@
 #include "Lobby.hpp"
 #include "DrawingCanvas.hpp"
 #include "Constants.h"
+#include "SceneManager.hpp"
 
 using namespace cocos2d;
 
@@ -33,7 +34,7 @@ void Lobby::onEnter()
 
 void Lobby::setupUI()
 {
-    Size visibleSize = Director::getInstance() -> getVisibleSize(); //pytam sie rozdzielczosc
+    Size visibleSize = Director::getInstance() -> getVisibleSize(); //pytam sie o rozdzielczosc
     
     Sprite* logo = Sprite::create("logo.png");
     logo -> setAnchorPoint(Vec2(0.0f, 0.5f));
@@ -72,12 +73,7 @@ void Lobby::onePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
-        Scene* scene = Scene::create(); //tworze nowa scene
-        
-        DrawingCanvas* drawingCanvas = DrawingCanvas::create(); //dodaje drawingCanvas do nowej sceny
-        scene -> addChild(drawingCanvas);
-        
-        Director::getInstance() -> pushScene(scene); //uruchamiam nowa scene
+        SceneManager::getInstance() -> enterOneGame();
     }
 }
 

@@ -8,6 +8,7 @@
 
 #include "DrawingCanvas.hpp"
 #include "Constants.h"
+#include "SceneManager.hpp"
 
 using namespace cocos2d;
 
@@ -17,6 +18,8 @@ bool DrawingCanvas::init()
     {
         return false;
     }
+    
+    this -> setNetworkedSession(false);
     
     drawNode = DrawNode::create();
     background = LayerColor::create(Color4B(COLOR_WHITE));
@@ -50,9 +53,11 @@ void DrawingCanvas::setupTouchHandling()
     
     auto touchListener = EventListenerTouchOneByOne::create();
     
-    touchListener->onTouchBegan = [&](Touch* touch, Event* event)
+    touchListener -> onTouchBegan = [&](Touch* touch, Event* event)
     {
         lastTouchPos = drawNode -> convertTouchToNodeSpace(touch);
+        
+        drawNode -> drawDot(lastTouchPos, INITIAL_RADIUS, selectedColor);
         
         return true;
     };
@@ -150,6 +155,16 @@ void DrawingCanvas::drawingMenu()
     
 }
 
+void DrawingCanvas::setNetworkedSession(bool networkedSession)
+{
+    //this -> networkedSession = networkedSession;
+}
+
+void DrawingCanvas::receivedData(const void* data, unsigned long length)
+{
+    
+}
+
 void DrawingCanvas::clrPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
@@ -162,7 +177,7 @@ void DrawingCanvas::bckPressed(Ref *pSender, ui::Widget::TouchEventType eEventTy
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
-        Director::getInstance() -> popScene(); //cofniecie do lobby
+        SceneManager::getInstance() -> returnToLobby(); //cofniecie do lobby
     }
 }
 
