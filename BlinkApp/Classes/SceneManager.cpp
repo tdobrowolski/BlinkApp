@@ -30,17 +30,39 @@ void SceneManager::receivedData(const void* data, unsigned long length)
 
 void SceneManager::stateChanged(ConnectionState state)
 {
-    
+    switch (state)
+    {
+        case ConnectionState::NOT_CONNECTED:
+            CCLOG("Connection: None");
+            break;
+            
+        case ConnectionState::CONNECTING:
+            CCLOG("Connection: Waiting");
+            break;
+            
+        case ConnectionState::CONNECTED:
+            CCLOG("Connection: Positive");
+            
+            if (!drawingCanvas)
+            {
+                this -> loadDrawingScene(true);
+            }
+            
+            break;
+    }
 }
 
 SceneManager::SceneManager()
 {
     drawingCanvas = nullptr;
+    
+    networkingWrapper = new NetworkingWrapper();
+    networkingWrapper -> setDelegate(this);
 }
 
 SceneManager::~SceneManager()
 {
-    
+    delete networkingWrapper;
 }
 
 void SceneManager::enterOneGame()
@@ -69,3 +91,9 @@ void SceneManager::loadDrawingScene(bool networked)
     Director::getInstance() -> pushScene(scene);
 }
 
+void SceneManager::connectAndEnterNetworkGame()
+{
+    
+    networkingWrapper -> attemptToJoinGame();
+    
+}

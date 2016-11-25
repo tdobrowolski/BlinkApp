@@ -79,5 +79,8 @@ void Lobby::onePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 
 void Lobby::twoPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 {
-    
+    if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
+    {
+        SceneManager::getInstance() -> connectAndEnterNetworkGame();
+    }
 }

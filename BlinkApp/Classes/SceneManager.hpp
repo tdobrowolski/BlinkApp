@@ -24,6 +24,8 @@ public:
     void enterOneGame();
     void returnToLobby();
     
+    void connectAndEnterNetworkGame();
+    
     
 private:
     void receivedData(const void* data, unsigned long length) override;
@@ -35,6 +37,8 @@ private:
     DrawingCanvas* drawingCanvas;
     
     void loadDrawingScene(bool networked);
+    
+    NetworkingWrapper* networkingWrapper;
     
 };
 
