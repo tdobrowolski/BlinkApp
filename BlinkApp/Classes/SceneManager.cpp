@@ -8,6 +8,8 @@
 
 #include "SceneManager.hpp"
 #include "DrawingCanvas.hpp"
+#include "cocos2d.h"
+#include "Lobby.hpp"
 
 using namespace cocos2d;
 
@@ -15,7 +17,7 @@ static SceneManager* sharedSceneManager = nullptr;
 
 SceneManager* SceneManager::getInstance()
 {
-    if (!sharedSceneManager)
+    if (! sharedSceneManager)
     {
         sharedSceneManager = new SceneManager();
     }
@@ -25,7 +27,10 @@ SceneManager* SceneManager::getInstance()
 
 void SceneManager::receivedData(const void* data, unsigned long length)
 {
-    
+    if (drawingCanvas)
+    {
+        drawingCanvas -> receivedData(data, length);
+    }
 }
 
 void SceneManager::stateChanged(ConnectionState state)
@@ -76,6 +81,7 @@ void SceneManager::returnToLobby()
     {
         Director::getInstance() -> popScene();
         drawingCanvas = nullptr;
+        networkingWrapper -> disconnect();
     }
 }
 
@@ -96,4 +102,9 @@ void SceneManager::connectAndEnterNetworkGame()
     
     networkingWrapper -> attemptToJoinGame();
     
+}
+
+void SceneManager::sendData(const void *data, unsigned long length)
+{
+    networkingWrapper -> sendData(data, length);
 }

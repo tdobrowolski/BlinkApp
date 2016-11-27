@@ -12,11 +12,12 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 
-
 class Lobby : public cocos2d::Node
 {
 public:
     CREATE_FUNC(Lobby);
+    
+    void shit();
     
 protected:
     bool init() override;

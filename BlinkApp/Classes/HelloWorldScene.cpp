@@ -31,7 +31,7 @@ bool HelloWorld::init()
     
     Lobby* Lobby = Lobby::create();
     
-    this->addChild(Lobby);
+    this -> addChild(Lobby);
     
     return true;
 }

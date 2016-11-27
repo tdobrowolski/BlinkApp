@@ -26,6 +26,7 @@ public:
     
     void connectAndEnterNetworkGame();
     
+    void sendData(const void* data, unsigned long length);  
     
 private:
     void receivedData(const void* data, unsigned long length) override;

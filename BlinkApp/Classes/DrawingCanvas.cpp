@@ -9,6 +9,7 @@
 #include "DrawingCanvas.hpp"
 #include "Constants.h"
 #include "SceneManager.hpp"
+#include "JSONPacker.hpp"
 
 using namespace cocos2d;
 
@@ -44,7 +45,7 @@ void DrawingCanvas::onEnter()
     
     this -> setupTouchHandling();
     
-    drawingMenu();
+    this -> drawingMenu();
 }
 
 void DrawingCanvas::setupTouchHandling()
@@ -59,14 +60,24 @@ void DrawingCanvas::setupTouchHandling()
         
         drawNode -> drawDot(lastTouchPos, INITIAL_RADIUS, selectedColor);
         
+        if (this -> networkedSession)
+        {
+            this -> sendStrokeOverNetwork(lastTouchPos, lastTouchPos, INITIAL_RADIUS, selectedColor);
+        }
+        
         return true;
     };
     
-    touchListener->onTouchMoved = [&](Touch* touch, Event* event)
+    touchListener -> onTouchMoved = [&](Touch* touch, Event* event)
     {
         Vec2 touchPos = drawNode -> convertTouchToNodeSpace(touch);
         
         drawNode -> drawSegment(lastTouchPos, touchPos, INITIAL_RADIUS, selectedColor);
+        
+        if (this -> networkedSession)
+        {
+            this -> sendStrokeOverNetwork(lastTouchPos, touchPos, INITIAL_RADIUS, selectedColor);
+        }
         
         lastTouchPos = touchPos;
     };
@@ -105,7 +116,7 @@ void DrawingCanvas::drawingMenu()
     selected -> setColor(Color3B(COLOR_RED));
 
     Node* colorButtonLayout = Node::create();
-    colorButtonLayout -> setContentSize(Size(visibleSize.width, visibleSize.height * 0.11f));
+    colorButtonLayout -> setContentSize(Size(visibleSize.width, visibleSize.height * 0.10f));
     colorButtonLayout -> setAnchorPoint(Vec2(0, 0));
     colorButtonLayout -> setPosition(Vec2(120, 0));
     this -> addChild(colorButtonLayout);
@@ -115,7 +126,7 @@ void DrawingCanvas::drawingMenu()
         ui::Button* colorButton = ui::Button::create();
         colorButton -> setAnchorPoint(Vec2(0.0, 0.0));
         colorButton -> setPosition(Vec2(visibleSize.width * i * (1.0f/6.0f), 0.0f));
-        colorButton -> loadTextures("colorRectangle.png", "colorRectanglePicked.png");
+        colorButton -> loadTextures("colorRectangle.png", "colorRectangle.png");
         colorButton -> addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::colorChangePressed, this)); //dodaje metode powiazana z wybraniem koloru
         colorButton -> setScale(1.03);
         
@@ -157,12 +168,19 @@ void DrawingCanvas::drawingMenu()
 
 void DrawingCanvas::setNetworkedSession(bool networkedSession)
 {
-    //this -> networkedSession = networkedSession;
+    this -> networkedSession = networkedSession;
 }
 
 void DrawingCanvas::receivedData(const void* data, unsigned long length)
 {
+    const char* cstr = reinterpret_cast<const char*>(data);
+    std::string json = std::string(cstr, length);
     
+    JSONPacker::LineData lineData = JSONPacker::unpackLineDataJSON(json);
+    
+    drawNode -> drawDot(lineData.startPoint, lineData.radius, lineData.color);
+    
+    drawNode -> drawSegment(lineData.startPoint, lineData.endPoint, lineData.radius, lineData.color);
 }
 
 void DrawingCanvas::clrPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
@@ -227,5 +245,27 @@ void DrawingCanvas::colorChangePressed(Ref *pSender, ui::Widget::TouchEventType 
         pressedButton -> addChild(selected);
         selected -> release();
         
+        selected -> setPosition(Vec2(0, -5));
+
+        auto moveTo = MoveBy::create(0.2, Vec2(0, 5));
+        selected -> runAction(moveTo);
+        //auto seq = Sequence::create(moveTo, nullptr);
+        
+        // run it
+        //selected -> runAction(seq);
+        
     }
+}
+
+void DrawingCanvas::sendStrokeOverNetwork(Vec2 startPoint, Vec2 endPoint, float radius, Color4F color)
+{
+    JSONPacker::LineData lineData;
+    lineData.startPoint = startPoint;
+    lineData.endPoint = endPoint;
+    lineData.radius = radius;
+    lineData.color = color;
+    
+    std::string json = JSONPacker::packLineData(lineData);
+    
+    SceneManager::getInstance() -> sendData(json.c_str(), json.length());
 }

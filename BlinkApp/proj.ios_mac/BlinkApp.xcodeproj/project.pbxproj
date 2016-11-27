@@ -77,6 +77,8 @@
 		E1497DF71DC6211D00E28357 /* Lobby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1497DF41DC6211D00E28357 /* Lobby.cpp */; };
 		E151317C1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */; };
 		E151317D1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */; };
+		E16294451DE8A6DF008AA397 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E16294431DE8A6DF008AA397 /* JSONPacker.cpp */; };
+		E16294461DE8A6DF008AA397 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E16294431DE8A6DF008AA397 /* JSONPacker.cpp */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -192,6 +194,8 @@
 		E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawingCanvas.cpp; sourceTree = "<group>"; };
 		E151317B1DBE8FB6008A81A1 /* DrawingCanvas.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawingCanvas.hpp; sourceTree = "<group>"; };
 		E15F81C71DCBCE6200246E26 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E16294431DE8A6DF008AA397 /* JSONPacker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONPacker.cpp; sourceTree = "<group>"; };
+		E16294441DE8A6DF008AA397 /* JSONPacker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSONPacker.hpp; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -405,6 +409,8 @@
 				E1021B211DE0D3BE0096C3C8 /* NetworkManager.h */,
 				E1021B231DE0D3BE0096C3C8 /* NetworkManagerDelegate.h */,
 				E1021B241DE0D3BE0096C3C8 /* NetworkManager.mm */,
+				E16294431DE8A6DF008AA397 /* JSONPacker.cpp */,
+				E16294441DE8A6DF008AA397 /* JSONPacker.hpp */,
 			);
 			name = "Sieć";
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				E16294451DE8A6DF008AA397 /* JSONPacker.cpp in Sources */,
 				E1021B261DE0D3BE0096C3C8 /* NetworkManager.mm in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				E151317C1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */,
@@ -581,6 +588,7 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				E16294461DE8A6DF008AA397 /* JSONPacker.cpp in Sources */,
 				E1021B2E1DE0D72D0096C3C8 /* SceneManager.cpp in Sources */,
 				E151317D1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,

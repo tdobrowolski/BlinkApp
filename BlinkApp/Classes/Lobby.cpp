@@ -10,6 +10,7 @@
 #include "DrawingCanvas.hpp"
 #include "Constants.h"
 #include "SceneManager.hpp"
+#include "NetworkingWrapper.h"
 
 using namespace cocos2d;
 
@@ -43,7 +44,6 @@ void Lobby::setupUI()
     
     this -> addChild(logo); //dodaje logo do sceny
     
-    
     Sprite* background = Sprite::create("background.png");
     background -> setAnchorPoint(Vec2(0, 0));
     
@@ -52,7 +52,6 @@ void Lobby::setupUI()
     background -> setPosition(Vec2(150, 0));
     
     this -> addChild(background); //dodaje logo do sceny
-    
     
     ui::Button* oneButton = ui::Button::create();
     oneButton -> setAnchorPoint(Vec2(0.0f, 1.0f));
@@ -67,6 +66,18 @@ void Lobby::setupUI()
     twoButton -> loadTextures("twoButton.png", "twoButton.png");
     twoButton -> addTouchEventListener(CC_CALLBACK_2(Lobby::twoPressed, this)); //dodaje metode powiazana z nacisnieciem przycisku
     this -> addChild(twoButton); //dodaje przycisk 2 do sceny
+}
+
+void Lobby::shit()
+{
+    Size visibleSize = Director::getInstance() -> getVisibleSize(); //pytam sie o rozdzielczosc
+    
+    Sprite* logo = Sprite::create("logo.png");
+    logo -> setAnchorPoint(Vec2(0.0f, 0.5f));
+    
+    logo -> setPosition(Vec2(visibleSize.width * 1.0f, visibleSize.height * 0.5f));
+    
+    this -> addChild(logo); //dodaje logo do sceny
 }
 
 void Lobby::onePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
