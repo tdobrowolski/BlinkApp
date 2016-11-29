@@ -17,12 +17,12 @@ class Lobby : public cocos2d::Node
 public:
     CREATE_FUNC(Lobby);
     
-    void shit();
-    
 protected:
     bool init() override;
     void onEnter() override;
     void setupUI();
+    void remove();
+    
     void onePressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void twoPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };

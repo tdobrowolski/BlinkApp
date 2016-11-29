@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "NetworkingWrapper.h"
+#include "Lobby.hpp"
 
 class DrawingCanvas : public cocos2d::Node
 {
@@ -21,7 +22,7 @@ public:
     void receivedData(const void* data, unsigned long length); // deklaracje klas do implementacji trybu MultiPlayer
     
     void setNetworkedSession(bool networkedSession);
-    
+
 protected:
     bool networkedSession;
     

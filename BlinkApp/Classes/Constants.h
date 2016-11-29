@@ -31,5 +31,6 @@ static const cocos2d::Color4F COLOR_GREY = cocos2d::Color4F(92/255.0f, 92/255.0f
 
 static bool isWhite = true;
 
+static bool isNotification = false;
 
 #endif /* Constants_h */

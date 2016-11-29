@@ -20,7 +20,6 @@ bool Lobby::init()
     {
         return false;
     }
-    
     LayerColor* background = LayerColor::create(Color4B(COLOR_WHITE)); //tworze tlo dla Lobby
     this -> addChild(background); //dodaje tlo do sceny
     
@@ -31,6 +30,14 @@ void Lobby::onEnter()
 {
     Node::onEnter();
     setupUI();
+    
+    if (isNotification == true)
+    {
+        remove();
+        
+        isNotification = false;
+    }
+    
 }
 
 void Lobby::setupUI()
@@ -44,6 +51,7 @@ void Lobby::setupUI()
     
     this -> addChild(logo); //dodaje logo do sceny
     
+    //this->removeChildByTag(99);
     Sprite* background = Sprite::create("background.png");
     background -> setAnchorPoint(Vec2(0, 0));
     
@@ -52,6 +60,7 @@ void Lobby::setupUI()
     background -> setPosition(Vec2(150, 0));
     
     this -> addChild(background); //dodaje logo do sceny
+    
     
     ui::Button* oneButton = ui::Button::create();
     oneButton -> setAnchorPoint(Vec2(0.0f, 1.0f));
@@ -68,16 +77,9 @@ void Lobby::setupUI()
     this -> addChild(twoButton); //dodaje przycisk 2 do sceny
 }
 
-void Lobby::shit()
+void Lobby::remove()
 {
-    Size visibleSize = Director::getInstance() -> getVisibleSize(); //pytam sie o rozdzielczosc
-    
-    Sprite* logo = Sprite::create("logo.png");
-    logo -> setAnchorPoint(Vec2(0.0f, 0.5f));
-    
-    logo -> setPosition(Vec2(visibleSize.width * 1.0f, visibleSize.height * 0.5f));
-    
-    this -> addChild(logo); //dodaje logo do sceny
+    this -> removeChildByTag(99);
 }
 
 void Lobby::onePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
@@ -92,6 +94,25 @@ void Lobby::twoPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
+        
         SceneManager::getInstance() -> connectAndEnterNetworkGame();
+        
+        if (isNotification == false)
+        {
+            Size visibleSize = Director::getInstance() -> getVisibleSize();
+            cocos2d::Sprite* notification = cocos2d::Sprite::create("NotificationM.png");
+            notification -> setAnchorPoint(Vec2(0, 0));
+            notification -> setScale(1.05);
+            notification -> setPosition(Vec2(150, visibleSize.height));
+            this -> addChild(notification); //dodaje powiadomienie do sceny
+            notification -> setTag(99);
+            
+            auto moveBy = MoveBy::create(0.2, Vec2(0, -45));
+            notification -> runAction(moveBy);
+            
+            isNotification = true;
+            
+        }
+        
     }
 }

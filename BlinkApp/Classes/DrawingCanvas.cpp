@@ -82,7 +82,7 @@ void DrawingCanvas::setupTouchHandling()
         lastTouchPos = touchPos;
     };
     
-    this -> getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+    this -> getEventDispatcher() -> addEventListenerWithSceneGraphPriority(touchListener, this);
 }
 
 void DrawingCanvas::drawingMenu()
@@ -178,9 +178,13 @@ void DrawingCanvas::receivedData(const void* data, unsigned long length)
     
     JSONPacker::LineData lineData = JSONPacker::unpackLineDataJSON(json);
     
-    drawNode -> drawDot(lineData.startPoint, lineData.radius, lineData.color);
-    
-    drawNode -> drawSegment(lineData.startPoint, lineData.endPoint, lineData.radius, lineData.color);
+    if (lineData.startPoint == lineData.endPoint)
+    {
+        drawNode -> drawDot(lineData.startPoint, lineData.radius, lineData.color);
+    }else
+    {
+        drawNode -> drawSegment(lineData.startPoint, lineData.endPoint, lineData.radius, lineData.color);
+    }
 }
 
 void DrawingCanvas::clrPressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
@@ -249,10 +253,6 @@ void DrawingCanvas::colorChangePressed(Ref *pSender, ui::Widget::TouchEventType 
 
         auto moveTo = MoveBy::create(0.2, Vec2(0, 5));
         selected -> runAction(moveTo);
-        //auto seq = Sequence::create(moveTo, nullptr);
-        
-        // run it
-        //selected -> runAction(seq);
         
     }
 }
