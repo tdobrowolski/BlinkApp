@@ -9,11 +9,14 @@
 #include "SceneManager.hpp"
 #include "DrawingCanvas.hpp"
 #include "cocos2d.h"
-#include "Lobby.hpp"
+#include "NativeUtility.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 
 static SceneManager* sharedSceneManager = nullptr;
+
+auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 
 SceneManager* SceneManager::getInstance()
 {
@@ -51,6 +54,9 @@ void SceneManager::stateChanged(ConnectionState state)
             if (!drawingCanvas)
             {
                 this -> loadDrawingScene(true);
+                vibrate(1000);
+                audio -> playBackgroundMusic("notificationSound.wav", false);
+                
             }
             
             break;

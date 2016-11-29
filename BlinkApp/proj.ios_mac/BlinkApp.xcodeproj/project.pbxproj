@@ -79,6 +79,8 @@
 		E151317D1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */; };
 		E16294451DE8A6DF008AA397 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E16294431DE8A6DF008AA397 /* JSONPacker.cpp */; };
 		E16294461DE8A6DF008AA397 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E16294431DE8A6DF008AA397 /* JSONPacker.cpp */; };
+		E1DB988C1DEE016E007C8D2C /* NativeUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1DB988A1DEE016E007C8D2C /* NativeUtility.mm */; };
+		E1DB98901DEE0D12007C8D2C /* notificationSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1DB988F1DEE0D12007C8D2C /* notificationSound.wav */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -196,6 +198,9 @@
 		E15F81C71DCBCE6200246E26 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		E16294431DE8A6DF008AA397 /* JSONPacker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONPacker.cpp; sourceTree = "<group>"; };
 		E16294441DE8A6DF008AA397 /* JSONPacker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSONPacker.hpp; sourceTree = "<group>"; };
+		E1DB988A1DEE016E007C8D2C /* NativeUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NativeUtility.mm; path = ../../../../Desktop/NativeUtility.mm; sourceTree = "<group>"; };
+		E1DB988B1DEE016E007C8D2C /* NativeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeUtility.h; path = ../../../../Desktop/NativeUtility.h; sourceTree = "<group>"; };
+		E1DB988F1DEE0D12007C8D2C /* notificationSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = notificationSound.wav; path = ../../../../Desktop/notificationSound.wav; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -324,6 +329,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1DB988F1DEE0D12007C8D2C /* notificationSound.wav */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
@@ -343,6 +349,7 @@
 				E15F81C71DCBCE6200246E26 /* Constants.h */,
 				E151317B1DBE8FB6008A81A1 /* DrawingCanvas.hpp */,
 				E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */,
+				E1DB988E1DEE0178007C8D2C /* Funkcje urządzenia */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
@@ -413,6 +420,15 @@
 				E16294441DE8A6DF008AA397 /* JSONPacker.hpp */,
 			);
 			name = "Sieć";
+			sourceTree = "<group>";
+		};
+		E1DB988E1DEE0178007C8D2C /* Funkcje urządzenia */ = {
+			isa = PBXGroup;
+			children = (
+				E1DB988A1DEE016E007C8D2C /* NativeUtility.mm */,
+				E1DB988B1DEE016E007C8D2C /* NativeUtility.h */,
+			);
+			name = "Funkcje urządzenia";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,6 +555,7 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
+				E1DB98901DEE0D12007C8D2C /* notificationSound.wav in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -579,6 +596,7 @@
 				E1021B251DE0D3BE0096C3C8 /* NetworkingWrapper.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				E1DB988C1DEE016E007C8D2C /* NativeUtility.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

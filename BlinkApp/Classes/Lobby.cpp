@@ -11,6 +11,7 @@
 #include "Constants.h"
 #include "SceneManager.hpp"
 #include "NetworkingWrapper.h"
+#include "NativeUtility.h"
 
 using namespace cocos2d;
 
@@ -86,6 +87,7 @@ void Lobby::onePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
+        vibrate(2000);
         SceneManager::getInstance() -> enterOneGame();
     }
 }
