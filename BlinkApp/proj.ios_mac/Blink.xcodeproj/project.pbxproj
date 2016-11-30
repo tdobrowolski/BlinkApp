@@ -79,8 +79,8 @@
 		E151317D1DBE8FB6008A81A1 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E151317A1DBE8FB6008A81A1 /* DrawingCanvas.cpp */; };
 		E16294451DE8A6DF008AA397 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E16294431DE8A6DF008AA397 /* JSONPacker.cpp */; };
 		E16294461DE8A6DF008AA397 /* JSONPacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E16294431DE8A6DF008AA397 /* JSONPacker.cpp */; };
-		E1DB988C1DEE016E007C8D2C /* NativeUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1DB988A1DEE016E007C8D2C /* NativeUtility.mm */; };
-		E1DB98901DEE0D12007C8D2C /* notificationSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1DB988F1DEE0D12007C8D2C /* notificationSound.wav */; };
+		E1789B2C1DEF03C8007DDA92 /* notificationSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E1789B2B1DEF03C8007DDA92 /* notificationSound.wav */; };
+		E1789B2F1DEF041D007DDA92 /* NativeUtility.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1789B2D1DEF041D007DDA92 /* NativeUtility.mm */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -127,7 +127,7 @@
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* BlinkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlinkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Blink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
@@ -151,7 +151,7 @@
 		503AE10417EB98FF00D1A890 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = mac/Prefix.pch; sourceTree = "<group>"; };
 		503AE11117EB99EE00D1A890 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		503AE11A17EB9C5A00D1A890 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		5087E76F17EB910900C73F5D /* BlinkApp-desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BlinkApp-desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5087E76F17EB910900C73F5D /* Blink-desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blink-desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5087E77217EB970100C73F5D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5087E77317EB970100C73F5D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5087E77417EB970100C73F5D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -198,9 +198,9 @@
 		E15F81C71DCBCE6200246E26 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		E16294431DE8A6DF008AA397 /* JSONPacker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONPacker.cpp; sourceTree = "<group>"; };
 		E16294441DE8A6DF008AA397 /* JSONPacker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JSONPacker.hpp; sourceTree = "<group>"; };
-		E1DB988A1DEE016E007C8D2C /* NativeUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NativeUtility.mm; path = ../../../../Desktop/NativeUtility.mm; sourceTree = "<group>"; };
-		E1DB988B1DEE016E007C8D2C /* NativeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeUtility.h; path = ../../../../Desktop/NativeUtility.h; sourceTree = "<group>"; };
-		E1DB988F1DEE0D12007C8D2C /* notificationSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = notificationSound.wav; path = ../../../../Desktop/notificationSound.wav; sourceTree = "<group>"; };
+		E1789B2B1DEF03C8007DDA92 /* notificationSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notificationSound.wav; sourceTree = "<group>"; };
+		E1789B2D1DEF041D007DDA92 /* NativeUtility.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeUtility.mm; sourceTree = "<group>"; };
+		E1789B2E1DEF041D007DDA92 /* NativeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeUtility.h; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -268,8 +268,8 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* BlinkApp.app */,
-				5087E76F17EB910900C73F5D /* BlinkApp-desktop.app */,
+				1D6058910D05DD3D006BFB54 /* Blink.app */,
+				5087E76F17EB910900C73F5D /* Blink-desktop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E1DB988F1DEE0D12007C8D2C /* notificationSound.wav */,
+				E1789B2B1DEF03C8007DDA92 /* notificationSound.wav */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
@@ -425,8 +425,8 @@
 		E1DB988E1DEE0178007C8D2C /* Funkcje urządzenia */ = {
 			isa = PBXGroup;
 			children = (
-				E1DB988A1DEE016E007C8D2C /* NativeUtility.mm */,
-				E1DB988B1DEE016E007C8D2C /* NativeUtility.h */,
+				E1789B2D1DEF041D007DDA92 /* NativeUtility.mm */,
+				E1789B2E1DEF041D007DDA92 /* NativeUtility.h */,
 			);
 			name = "Funkcje urządzenia";
 			sourceTree = "<group>";
@@ -434,9 +434,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* BlinkApp-mobile */ = {
+		1D6058900D05DD3D006BFB54 /* Blink-mobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BlinkApp-mobile" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Blink-mobile" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -447,14 +447,14 @@
 			dependencies = (
 				1AC6FB25180E99E1004C840B /* PBXTargetDependency */,
 			);
-			name = "BlinkApp-mobile";
+			name = "Blink-mobile";
 			productName = iphone;
-			productReference = 1D6058910D05DD3D006BFB54 /* BlinkApp.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Blink.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5087E73D17EB910900C73F5D /* BlinkApp-desktop */ = {
+		5087E73D17EB910900C73F5D /* Blink-desktop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "BlinkApp-desktop" */;
+			buildConfigurationList = 5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "Blink-desktop" */;
 			buildPhases = (
 				5087E74817EB910900C73F5D /* Resources */,
 				5087E75617EB910900C73F5D /* Sources */,
@@ -465,9 +465,9 @@
 			dependencies = (
 				1AC6FB16180E9959004C840B /* PBXTargetDependency */,
 			);
-			name = "BlinkApp-desktop";
+			name = "Blink-desktop";
 			productName = iphone;
-			productReference = 5087E76F17EB910900C73F5D /* BlinkApp-desktop.app */;
+			productReference = 5087E76F17EB910900C73F5D /* Blink-desktop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -483,7 +483,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BlinkApp" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Blink" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -503,8 +503,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* BlinkApp-mobile */,
-				5087E73D17EB910900C73F5D /* BlinkApp-desktop */,
+				1D6058900D05DD3D006BFB54 /* Blink-mobile */,
+				5087E73D17EB910900C73F5D /* Blink-desktop */,
 			);
 		};
 /* End PBXProject section */
@@ -555,7 +555,7 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
-				E1DB98901DEE0D12007C8D2C /* notificationSound.wav in Resources */,
+				E1789B2C1DEF03C8007DDA92 /* notificationSound.wav in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
@@ -595,8 +595,8 @@
 				E1497DF61DC6211D00E28357 /* Lobby.cpp in Sources */,
 				E1021B251DE0D3BE0096C3C8 /* NetworkingWrapper.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				E1789B2F1DEF041D007DDA92 /* NativeUtility.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				E1DB988C1DEE016E007C8D2C /* NativeUtility.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,7 +656,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
-				PRODUCT_NAME = BlinkApp;
+				PRODUCT_NAME = Blink;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -689,7 +689,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
-				PRODUCT_NAME = BlinkApp;
+				PRODUCT_NAME = Blink;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -725,6 +725,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_NAME = "Blink-desktop";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Debug;
@@ -754,6 +755,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_NAME = "Blink-desktop";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Release;
@@ -810,7 +812,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BlinkApp-mobile" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Blink-mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -819,7 +821,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "BlinkApp-desktop" */ = {
+		5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "Blink-desktop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5087E76D17EB910900C73F5D /* Debug */,
@@ -828,7 +830,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BlinkApp" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Blink" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

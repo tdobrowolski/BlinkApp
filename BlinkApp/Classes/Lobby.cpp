@@ -87,7 +87,6 @@ void Lobby::onePressed(Ref *pSender, ui::Widget::TouchEventType eEventType)
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
-        vibrate(2000);
         SceneManager::getInstance() -> enterOneGame();
     }
 }
