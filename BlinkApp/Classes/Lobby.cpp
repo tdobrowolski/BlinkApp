@@ -52,7 +52,6 @@ void Lobby::setupUI()
     
     this -> addChild(logo); //dodaje logo do sceny
     
-    //this->removeChildByTag(99);
     Sprite* background = Sprite::create("background.png");
     background -> setAnchorPoint(Vec2(0, 0));
     

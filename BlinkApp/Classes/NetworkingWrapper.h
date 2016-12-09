@@ -1,7 +1,7 @@
 
 
-#ifndef __Doodler__NetworkingWrapper__
-#define __Doodler__NetworkingWrapper__
+#ifndef __Blink__NetworkingWrapper__
+#define __Blink__NetworkingWrapper__
 
 #include "NetworkManagerDelegate.h"
 
@@ -43,4 +43,4 @@ private:
     void stateChanged(ConnectionState state);
 };
 
-#endif /* defined(__Doodler__NetworkingWrapper__) */
+#endif /* defined(__Blink__NetworkingWrapper__) */

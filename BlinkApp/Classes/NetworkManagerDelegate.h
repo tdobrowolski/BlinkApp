@@ -1,7 +1,7 @@
 
 
-#ifndef __Doodler__NetworkManagerDelegate__
-#define __Doodler__NetworkManagerDelegate__
+#ifndef __Blink__NetworkManagerDelegate__
+#define __Blink__NetworkManagerDelegate__
 
 enum class ConnectionState
 {
@@ -17,4 +17,4 @@ public:
     virtual void stateChanged(ConnectionState state) = 0;
 };
 
-#endif /* defined(__Doodler__NetworkManagerDelegate__) */
+#endif /* Blink(__Doodler__NetworkManagerDelegate__) */

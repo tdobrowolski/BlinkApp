@@ -105,7 +105,7 @@ void DrawingCanvas::drawingMenu()
     
     ui::Button* bulbButton = ui::Button::create();
     bulbButton -> setAnchorPoint(Vec2(1.0f, 1.0f));
-    bulbButton -> setPosition(Vec2(visibleSize.width * 1.36f, visibleSize.height * 0.94f));
+    bulbButton -> setPosition(Vec2(visibleSize.width * 1.40f, visibleSize.height * 0.96f));
     bulbButton -> loadTextures("bulbButton.png", "bulbButtonPressed.png");
     bulbButton -> addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::bulbPressed, this)); //dodaje metode powiazana z nacisnieciem przycisku
     this -> addChild(bulbButton); //dodaje przycisk zmiany tła do sceny
@@ -181,7 +181,7 @@ void DrawingCanvas::receivedData(const void* data, unsigned long length)
     if (lineData.startPoint == lineData.endPoint)
     {
         drawNode -> drawDot(lineData.startPoint, lineData.radius, lineData.color);
-    }else
+    } else
     {
         drawNode -> drawSegment(lineData.startPoint, lineData.endPoint, lineData.radius, lineData.color);
     }
