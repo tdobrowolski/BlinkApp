@@ -91,14 +91,14 @@ void DrawingCanvas::drawingMenu()
     
     ui::Button* clrButton = ui::Button::create();
     clrButton -> setAnchorPoint(Vec2(1.0f, 1.0f));
-    clrButton -> setPosition(Vec2(visibleSize.width * 1.74f, visibleSize.height * 0.94f));
+    clrButton -> setPosition(Vec2(visibleSize.width * 1.79f, visibleSize.height * 0.96f));
     clrButton -> loadTextures("clrButton.png", "clrButtonPressed.png");
     clrButton -> addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::clrPressed, this)); //dodaje metode powiazana z nacisnieciem przycisku
     this -> addChild(clrButton); //dodaje przycisk czyszczenia do sceny
     
     ui::Button* bckButton = ui::Button::create();
     bckButton -> setAnchorPoint(Vec2(1.0f, 1.0f));
-    bckButton -> setPosition(Vec2(visibleSize.width, visibleSize.height * 0.94f));
+    bckButton -> setPosition(Vec2(visibleSize.width, visibleSize.height * 0.96f));
     bckButton -> loadTextures("bckButton.png", "bckButtonPressed.png");
     bckButton -> addTouchEventListener(CC_CALLBACK_2(DrawingCanvas::bckPressed, this)); //dodaje metode powiazana z nacisnieciem przycisku
     this -> addChild(bckButton); //dodaje przycisk powrotu do sceny
