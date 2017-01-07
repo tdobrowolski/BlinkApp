@@ -35,6 +35,7 @@ protected:
     void onEnter() override;
     void setupTouchHandling();
     void drawingMenu();
+    void changeBackground();
     
     void clrPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void bckPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);

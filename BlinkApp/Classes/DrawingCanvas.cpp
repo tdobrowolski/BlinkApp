@@ -62,7 +62,7 @@ void DrawingCanvas::setupTouchHandling()
         
         if (this -> networkedSession)
         {
-            this -> sendStrokeOverNetwork(lastTouchPos, lastTouchPos, INITIAL_RADIUS, selectedColor);
+            this -> sendStrokeOverNetwork(lastTouchPos, lastTouchPos, 0, selectedColor);
         }
         
         return true;
@@ -76,7 +76,7 @@ void DrawingCanvas::setupTouchHandling()
         
         if (this -> networkedSession)
         {
-            this -> sendStrokeOverNetwork(lastTouchPos, touchPos, INITIAL_RADIUS, selectedColor);
+            this -> sendStrokeOverNetwork(lastTouchPos, touchPos, 0, selectedColor);
         }
         
         lastTouchPos = touchPos;
@@ -178,12 +178,22 @@ void DrawingCanvas::receivedData(const void* data, unsigned long length)
     
     JSONPacker::LineData lineData = JSONPacker::unpackLineDataJSON(json);
     
-    if (lineData.startPoint == lineData.endPoint)
+    if ((lineData.startPoint == lineData.endPoint) && (lineData.radius == 0))
     {
-        drawNode -> drawDot(lineData.startPoint, lineData.radius, lineData.color);
+        drawNode -> drawDot(lineData.startPoint, INITIAL_RADIUS, lineData.color);
     } else
     {
-        drawNode -> drawSegment(lineData.startPoint, lineData.endPoint, lineData.radius, lineData.color);
+        drawNode -> drawSegment(lineData.startPoint, lineData.endPoint, INITIAL_RADIUS, lineData.color);
+    }
+    
+    if (lineData.radius == 1)
+    {
+        drawNode -> clear();
+    }
+    
+    if (lineData.radius == 2)
+    {
+        changeBackground();
     }
 }
 
@@ -192,6 +202,11 @@ void DrawingCanvas::clrPressed(Ref *pSender, ui::Widget::TouchEventType eEventTy
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
         drawNode -> clear(); //wyczyszczenie
+        
+        if (this -> networkedSession)
+        {
+            this -> sendStrokeOverNetwork(Vec2(0, 0), Vec2(0, 0), 1, selectedColor);
+        }
     }
 }
 
@@ -207,30 +222,40 @@ void DrawingCanvas::bulbPressed(Ref *pSender, ui::Widget::TouchEventType eEventT
 {
     if (eEventType == ui::Widget::TouchEventType::ENDED) //przejscie do danego trybu jesli uzytkownik przestanie dotykac przycisk
     {
-        if (isWhite == true)
-            {
-                this -> removeChild(background);
+        changeBackground();
         
-                background = LayerColor::create(Color4B(COLOR_GREY));
+        if (this -> networkedSession)
+        {
+            this -> sendStrokeOverNetwork(Vec2(0, 0), Vec2(0, 0), 2, selectedColor);
+        }
+    }
+}
+
+void DrawingCanvas::changeBackground()
+{
+    if (isWhite == true)
+    {
+        this -> removeChild(background);
         
-                this -> addChild(background);
+        background = LayerColor::create(Color4B(COLOR_GREY));
         
-                this -> reorderChild(background, -1);
-                
-                isWhite = false;
-                
-            } else {
-                
-                this -> removeChild(background);
+        this -> addChild(background);
         
-                background = LayerColor::create(Color4B(COLOR_WHITE));
+        this -> reorderChild(background, -1);
         
-                this -> addChild(background);
+        isWhite = false;
         
-                this -> reorderChild(background, -1);
-                
-                isWhite = true;
-            }
+    } else {
+        
+        this -> removeChild(background);
+        
+        background = LayerColor::create(Color4B(COLOR_WHITE));
+        
+        this -> addChild(background);
+        
+        this -> reorderChild(background, -1);
+        
+        isWhite = true;
     }
 }
 
